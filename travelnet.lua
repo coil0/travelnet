@@ -1,5 +1,5 @@
 -- contains the node definition for a general travelnet that can be used by anyone
---   further travelnets can only be installed by the owner or by people with the travelnet_attach priv
+--   further travelnets can only be installed by the network owner or by people with the travelnet_attach priv
 --   digging of such a travelnet is limited to the owner and to people with the travelnet_remove priv (useful for admins to clean up)
 -- (this can be overrided in config.lua)
 -- Author: Sokomine

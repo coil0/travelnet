@@ -86,35 +86,35 @@ end
 
 -- if this function returns true, the player with the name player_name is
 -- allowed to add a box to the network named network_name, which is owned
--- by the player owner_name;
+-- by the player network_owner;
 -- if you want to allow *everybody* to attach stations to all nets, let the
 -- function always return true;
 -- if the function returns false, players with the travelnet_attach priv
 -- can still add stations to that network 
 
-travelnet.allow_attach = function( player_name, owner_name, network_name )
+travelnet.allow_attach = function( player_name, network_owner, network_name )
    return false;
 end
 
 
 -- if this returns true, a player named player_name can remove a travelnet station
--- from network_name (owned by owner_name) even though he is neither the owner nor
+-- from network_name (owned by network_owner) even though he is neither the owner nor
 -- has the travelnet_remove priv
-travelnet.allow_dig    = function( player_name, owner_name, network_name )
+travelnet.allow_dig    = function( player_name, network_owner, network_name )
    return false;
 end
 
 
 -- if this function returns false, then player player_name will not be allowed to use
--- the travelnet station_name_start on networ network_name owned by owner_name to travel to
+-- the travelnet station_name_start on network network_name owned by network_owner to travel to
 -- the station station_name_target on the same network;
 -- if this function returns true, the player will be transfered to the target station;
 -- you can use this code to i.e. charge the player money for the transfer or to limit
 -- usage of stations to players in the same fraction on PvP servers
-travelnet.allow_travel = function( player_name, owner_name, network_name, station_name_start, station_name_target )
+travelnet.allow_travel = function( player_name, network_owner, network_name, station_name_start, station_name_target )
 
    --minetest.chat_send_player( player_name, "Player "..tostring( player_name ).." tries to use station "..tostring( station_name_start )..
-   --    " on network "..tostring( network_name ).." owned by "..tostring( owner_name ).." in order to travel to "..
+   --    " on network "..tostring( network_name ).." owned by "..tostring( network_owner ).." in order to travel to "..
    --    tostring( station_name_target )..".");
 
    return true;
